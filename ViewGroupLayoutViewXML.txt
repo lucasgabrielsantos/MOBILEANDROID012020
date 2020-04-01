@@ -1,0 +1,21 @@
+VIEWGROUP - View que pode agrupar outras views.
+
+VIEW - É um elemento que está dentro de um
+GROUP.
+
+XML - Linguagem de Marcação.
+
+TAG - Elemento dentro do XML (View).
+
+Atributos de uma TAG - Vão influenciar no comportamento 
+da minha VIEW dentro do meu VIEWGROUP.
+
+LinearLayout - É um VIEWGROUP que necessita de orientações
+como: vertical ou horizontal.
+
+ConstraitLayout - É um VIEWGROUP que trabalha com
+amarrão entre as VIEWS e entre direções 
+(Esquerda, Direita, Cima e Baixo).
+
+
+
