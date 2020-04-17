@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AulaFragIntent</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="morreu_mas_passa_bem">Morreu mas passa bem</string>
+    <string name="em_meio_pandemia_do_novo_coronav_rus_as_pessoas_est_o_passando_mais_tempo_online_e_consequentemente_a_m_quina_de_memes_n_o_para_a_zu_ra_do_momento_no_brasil_e_no_mundo_a_dan_a_do_caix_o">Em meio à pandemia do novo coronavírus, as pessoas estão passando mais tempo online e, consequentemente, a \'máquina de memes\' não para. A \'zuêra\' do momento no Brasil e no mundo é a “dança do caixão</string>
+</resources>
