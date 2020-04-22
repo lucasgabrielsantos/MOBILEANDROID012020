@@ -12,44 +12,41 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import static com.example.aulafragintent.Utils.editTextIsEmpty;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText nome, email, senha;
-
     private Button btnCadastrar;
-
     private Activity activity = this;
+    public static final String NOME_KEY = "nome";
+    public static final String EMAIL_KEY = "email";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        nome = findViewById(R.id.id_nome);
-        email = findViewById(R.id.id_email);
-        senha = findViewById(R.id.id_senha);
-        btnCadastrar = findViewById(R.id.btn_cadastro);
-
+        initView();
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nomeUsuario = nome.getText().toString();
-                String emailUsuario = email.getText().toString();
-                String senhaUsuario = senha.getText().toString();
-
-                if(nomeUsuario.isEmpty() || emailUsuario.isEmpty() || senhaUsuario.isEmpty()){
+                if(editTextIsEmpty(nome, email, senha)){
                     Toast.makeText(activity, "Preencheu errado burro", Toast.LENGTH_LONG).show();
                 } else {
                     Intent intent = new Intent(MainActivity.this, PerfilActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("NOME", nomeUsuario);
-                    bundle.putString("SENHA", senhaUsuario);
-                    bundle.putString("EMAIL", emailUsuario);
-                    intent.putExtras(bundle);
+                    intent.putExtra(NOME_KEY, nome.getText().toString()).putExtra(EMAIL_KEY, email.getText().toString());
                     startActivity(intent);
                 }
             }
         });
+
+    }
+
+    private void initView(){
+        nome = findViewById(R.id.id_nome);
+        email = findViewById(R.id.id_email);
+        senha = findViewById(R.id.id_senha);
+        btnCadastrar = findViewById(R.id.btn_cadastro);
     }
 }
