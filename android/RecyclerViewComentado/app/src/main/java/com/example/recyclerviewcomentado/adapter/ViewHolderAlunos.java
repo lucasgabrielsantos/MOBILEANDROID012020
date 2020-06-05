@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.recyclerviewcomentado.R;
@@ -14,6 +15,7 @@ public class ViewHolderAlunos extends RecyclerView.ViewHolder {
     //Passo 3.B.III
     TextView nome;
     TextView curso;
+    ImageView imageView;
     CardView cardView;
 
     //Passo 3.B.II
@@ -23,6 +25,7 @@ public class ViewHolderAlunos extends RecyclerView.ViewHolder {
         nome = itemView.findViewById(R.id.text_name);
         curso = itemView.findViewById(R.id.text_curso);
         cardView = itemView.findViewById(R.id.card_view);
+        imageView = itemView.findViewById(R.id.image_aluno);
         //Ignorar o passo 3.B.V
     }
 }

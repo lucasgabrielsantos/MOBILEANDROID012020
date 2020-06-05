@@ -1,5 +1,7 @@
 package com.example.recyclerviewcomentado.adapter;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +10,8 @@ import android.view.ViewGroup;
 
 import com.example.recyclerviewcomentado.model.Aluno;
 import com.example.recyclerviewcomentado.R;
+import com.example.recyclerviewcomentado.view.MainActivity;
+import com.example.recyclerviewcomentado.view.SegundaActivity;
 
 import java.util.List;
 
@@ -16,6 +20,7 @@ public class AdapterAlunos extends RecyclerView.Adapter<ViewHolderAlunos> {
 
     //Passo 5
     private List<Aluno> alunoList;
+    public static final String aluno_key = "ALUNO";
 
     //Passo 6
     public AdapterAlunos(List<Aluno> alunoList) {
@@ -33,13 +38,18 @@ public class AdapterAlunos extends RecyclerView.Adapter<ViewHolderAlunos> {
     //Passo 7.B
     @Override
     public void onBindViewHolder(@NonNull final ViewHolderAlunos viewHolderAlunos, int position) {
-        Aluno aluno = alunoList.get(position);
+        final Aluno aluno = alunoList.get(position);
         viewHolderAlunos.nome.setText(aluno.getNome());
         viewHolderAlunos.curso.setText(aluno.getCurso());
+        viewHolderAlunos.imageView.setImageResource(aluno.getImage());
         viewHolderAlunos.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(v.getContext(), SegundaActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(aluno_key, aluno);
+                intent.putExtras(bundle);
+                v.getContext().startActivity(intent);
             }
         });
     }
